@@ -3,9 +3,11 @@ package com.davioooh.bookshelf.repositories;
 import com.davioooh.bookshelf.domain.Book;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public class ArrayListBookRepository implements BookRepository {
 
     private List<Book> db;
