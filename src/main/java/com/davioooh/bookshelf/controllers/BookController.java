@@ -40,7 +40,7 @@ public class BookController {
 
     @GetMapping("/new")
     public String showNewBookForm(Model model) {
-        model.addAttribute("book", Book.builder().build());
+        model.addAttribute("book", new Book());
         return "book-edit";
     }
 

@@ -2,6 +2,7 @@ package com.davioooh.bookshelf.services;
 
 import com.davioooh.bookshelf.domain.Book;
 import com.davioooh.bookshelf.repositories.BookRepository;
+import com.google.common.collect.ImmutableList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +19,7 @@ public class BookService {
     }
 
     public List<Book> getAll(){
-        return bookRepository.findAll();
+        return ImmutableList.copyOf(bookRepository.findAll());
     }
 
     public Book getByID(Integer id){
