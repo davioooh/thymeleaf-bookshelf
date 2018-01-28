@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="main-template">
+<head>
+    <title>Edit book</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <h2>Edit book</h2>
+
+    <form action="#" th:action="@{/books/...}" th:object="${book}" method="post">
+        <div>
+            <label for="title">
+                <strong>Title</strong>
+            </label>
+            <input type="text" th:field="*{title}" th:errorclass="fieldError"/>
+        </div>
+        <div>
+            <label for="author">
+                <strong>Author</strong>
+            </label>
+            <input type="text" th:field="*{author}" th:errorclass="fieldError"/>
+        </div>
+        <div class="submit">
+            <button type="submit" name="save">Save</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

@@ -1,5 +1,6 @@
 package com.davioooh.bookshelf.controllers;
 
+import com.davioooh.bookshelf.domain.Book;
 import com.davioooh.bookshelf.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,6 +30,18 @@ public class BookController {
     public String showBookDetails(@PathVariable("id") Integer id, Model model) {
         model.addAttribute("book", bookService.getByID(id));
         return "book-details";
+    }
+
+    @GetMapping("/{id}/edit")
+    public String showBookEditForm(@PathVariable("id") Integer id, Model model) {
+        model.addAttribute("book", bookService.getByID(id));
+        return "book-edit";
+    }
+
+    @GetMapping("/new")
+    public String showNewBookForm(Model model) {
+        model.addAttribute("book", Book.builder().build());
+        return "book-edit";
     }
 
 }
