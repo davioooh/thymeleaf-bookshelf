@@ -13,14 +13,14 @@
         <tr>
             <th>Title</th>
             <th>Author</th>
-
+            <th>Options</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="book : ${allBooks}">
             <td th:text="${book.title}">title</td>
             <td th:text="${book.author}">author</td>
-
+            <td><a th:href="@{/books/{id}(id=${book.id})}">I </a></td>
         </tr>
         </tbody>
     </table>
