@@ -1,10 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"></meta>
+    <meta charset="UTF-8"/>
     <title>Thymeleaf Bookshelf</title>
 </head>
 <body>
-    Ciao!
+<div>
+    <h2>All books</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="book : ${allBooks}">
+            <td th:text="${book.title}">title</td>
+            <td th:text="${book.author}">author</td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>
