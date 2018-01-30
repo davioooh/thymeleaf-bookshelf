@@ -22,8 +22,12 @@ public class BookService {
         return ImmutableList.copyOf(bookRepository.findAll());
     }
 
-    public Book getByID(Integer id){
+    public Book getById(Integer id){
         return bookRepository.findOne(id);
+    }
+
+    public Book save(Book book){
+        return bookRepository.save(book);
     }
 
 }
