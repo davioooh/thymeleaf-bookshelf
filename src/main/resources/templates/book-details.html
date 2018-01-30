@@ -10,8 +10,8 @@
     <h2 th:text="${book.title + ' (' + book.author + ')'}">A book</h2>
 
     <div>
-        <div><strong>Title: </strong><span th:text="${book.title}">title</span></div>
-        <div><strong>Author: </strong><span th:text="${book.author}">author</span></div>
+        <div><strong th:text="#{book.title}">Title</strong>: <span th:text="${book.title}">title</span></div>
+        <div><strong th:text="#{book.author}">Author</strong>: <span th:text="${book.author}">author</span></div>
     </div>
 </div>
 </body>

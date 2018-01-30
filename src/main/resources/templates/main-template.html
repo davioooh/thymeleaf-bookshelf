@@ -3,9 +3,11 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
     <meta charset="UTF-8"/>
-    <title layout:title-pattern="$CONTENT_TITLE - $DECORATOR_TITLE">Thymeleaf Bookshelf</title>
+    <title layout:title-pattern="$CONTENT_TITLE - $DECORATOR_TITLE"
+           th:text="#{application.title}">Thymeleaf Bookshelf Example</title>
 </head>
 <body>
+<div><h1 th:text="#{application.title}"></h1></div>
 <div layout:fragment="content">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec molestie, tortor sit amet scelerisque auctor, urna
     dui lobortis ex, gravida blandit magna leo et ligula. Vivamus sit amet pretium nunc. Pellentesque tincidunt bibendum

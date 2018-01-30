@@ -3,28 +3,28 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorator="main-template">
 <head>
-    <title>Edit book</title>
+    <title th:text="${book.title}">Edit book</title>
 </head>
 <body>
 <div layout:fragment="content">
-    <h2>Edit book</h2>
+    <h2 th:text="${book.id > 0} ? ${book.title} : #{book.new.title}">Edit book</h2>
 
     <form action="#" th:action="@{/books/save}" th:object="${book}" method="post">
         <input type="hidden" value="" th:field="*{id}" />
         <div>
             <label for="title">
-                <strong>Title</strong>
+                <strong th:text="#{book.title}">Title</strong>
             </label>
             <input type="text" th:field="*{title}" th:errorclass="fieldError"/>
         </div>
         <div>
             <label for="author">
-                <strong>Author</strong>
+                <strong th:text="#{book.author}">Author</strong>
             </label>
             <input type="text" th:field="*{author}" th:errorclass="fieldError"/>
         </div>
         <div class="submit">
-            <button type="submit" name="save">Save</button>
+            <button type="submit" th:text="#{book.save}" >Save</button>
         </div>
     </form>
 </div>
