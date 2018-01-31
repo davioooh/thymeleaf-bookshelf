@@ -22,8 +22,12 @@
             <td th:text="${book.title}">title</td>
             <td th:text="${book.author}">author</td>
             <td>
-                <a th:href="@{/books/{id}(id=${book.id})}">I </a>
-                <a th:href="@{/books/{id}/edit(id=${book.id})}">E </a>
+                <a th:href="@{/books/{id}(id=${book.id})}" th:title="#{book.list.options.info}">
+                    <i class="fa fa-info"></i></a>
+                <a th:href="@{/books/{id}/edit(id=${book.id})}" th:title="#{book.list.options.edit}">
+                    <i class="fa fa-pencil"></i></a>
+                <a th:href="@{/books/delete(id=${book.id})}" th:title="#{book.list.options.delete}">
+                    <i class="fa fa-times"></i></a>
             </td>
         </tr>
         </tbody>
