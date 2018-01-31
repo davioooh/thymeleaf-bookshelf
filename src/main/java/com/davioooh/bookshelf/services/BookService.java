@@ -14,20 +14,24 @@ public class BookService {
     private BookRepository bookRepository;
 
     @Autowired
-    public BookService(BookRepository bookRepository){
+    public BookService(BookRepository bookRepository) {
         this.bookRepository = bookRepository;
     }
 
-    public List<Book> getAll(){
+    public List<Book> getAll() {
         return ImmutableList.copyOf(bookRepository.findAll());
     }
 
-    public Book getById(Integer id){
+    public Book getById(Integer id) {
         return bookRepository.findOne(id);
     }
 
-    public Book save(Book book){
+    public Book save(Book book) {
         return bookRepository.save(book);
+    }
+
+    public void delete(Integer id) {
+        bookRepository.delete(id);
     }
 
 }
