@@ -8,30 +8,39 @@
 <body>
 <div layout:fragment="content">
     <h2 th:text="#{book.list.title}">All books</h2>
-
-    <table>
-        <thead>
-        <tr>
-            <th th:text="#{book.title}">Title</th>
-            <th th:text="#{book.author}">Author</th>
-            <th th:text="#{book.list.options}">Options</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="book : ${allBooks}">
-            <td th:text="${book.title}">title</td>
-            <td th:text="${book.author}">author</td>
-            <td>
-                <a th:href="@{/books/{id}(id=${book.id})}" th:title="#{book.list.options.info}">
-                    <i class="fa fa-info"></i></a>
-                <a th:href="@{/books/{id}/edit(id=${book.id})}" th:title="#{book.list.options.edit}">
-                    <i class="fa fa-pencil"></i></a>
-                <a th:href="@{/books/delete(id=${book.id})}" th:title="#{book.list.options.delete}">
-                    <i class="fa fa-times"></i></a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+    <div>
+        <a th:text="#{book.list.new}" th:href="@{/books/new}"></a>
+    </div>
+    <div class="seedstarterlist" th:unless="${#lists.isEmpty(allBooks)}">
+        <table>
+            <thead>
+            <tr>
+                <th th:text="#{book.title}">Title</th>
+                <th th:text="#{book.author}">Author</th>
+                <th th:text="#{book.publicationDate}">Publication Date</th>
+                <th th:text="#{book.list.options}">Options</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="book : ${allBooks}">
+                <td th:text="${book.title}">title</td>
+                <td th:text="${book.author}">author</td>
+                <td th:text="${book.publicationDate}">publication</td>
+                <td>
+                    <a th:href="@{/books/{id}(id=${book.id})}" th:title="#{book.list.options.info}">
+                        <i class="fa fa-info"></i></a>
+                    <a th:href="@{/books/{id}/edit(id=${book.id})}" th:title="#{book.list.options.edit}">
+                        <i class="fa fa-pencil"></i></a>
+                    <a th:href="@{/books/delete(id=${book.id})}" th:title="#{book.list.options.delete}">
+                        <i class="fa fa-times"></i></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div th:if="${#lists.isEmpty(allBooks)}">
+        <span th:text="#{book.list.empty}"></span>
+    </div>
 </div>
 </body>
 </html>

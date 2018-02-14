@@ -6,6 +6,7 @@ import org.hibernate.validator.constraints.NotBlank;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.Date;
 
 @Data
 @Entity
@@ -18,5 +19,6 @@ public class Book {
     @NotBlank
     private String author;
     private String description;
+    private Date publicationDate;
 
 }
