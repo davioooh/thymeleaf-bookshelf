@@ -23,6 +23,12 @@
             </label>
             <input type="text" th:field="*{author}" th:errorclass="fieldError"/>
         </div>
+        <div>
+            <label for="publicationYear">
+                <strong th:text="#{book.publicationYear}">Publication year</strong>
+            </label>
+            <input type="text" th:field="*{publicationYear}" th:errorclass="fieldError"/>
+        </div>
         <div class="submit">
             <button type="submit" th:text="#{book.save}" >Save</button>
         </div>

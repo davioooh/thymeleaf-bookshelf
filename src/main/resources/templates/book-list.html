@@ -17,7 +17,7 @@
             <tr>
                 <th th:text="#{book.title}">Title</th>
                 <th th:text="#{book.author}">Author</th>
-                <th th:text="#{book.publicationDate}">Publication Date</th>
+                <th th:text="#{book.publicationYear}">Publication Year</th>
                 <th th:text="#{book.list.options}">Options</th>
             </tr>
             </thead>
@@ -25,7 +25,7 @@
             <tr th:each="book : ${allBooks}">
                 <td th:text="${book.title}">title</td>
                 <td th:text="${book.author}">author</td>
-                <td th:text="${book.publicationDate}">publication</td>
+                <td th:text="${book.publicationYear}">publication</td>
                 <td>
                     <a th:href="@{/books/{id}(id=${book.id})}" th:title="#{book.list.options.info}">
                         <i class="fa fa-info"></i></a>
