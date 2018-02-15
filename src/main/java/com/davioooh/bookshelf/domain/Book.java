@@ -21,7 +21,6 @@ public class Book {
     private Integer publicationYear;
     private Type type;
 
-
     public enum Type {
         NOVEL,
         ESSAY,
