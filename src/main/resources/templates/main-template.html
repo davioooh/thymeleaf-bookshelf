@@ -7,10 +7,13 @@
            th:text="#{application.title}">Thymeleaf Bookshelf Example</title>
     <link rel="stylesheet" type="text/css" media="all" href="/font-awesome-4.7.0/css/font-awesome.min.css"
           th:href="@{/font-awesome-4.7.0/css/font-awesome.min.css}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+    <link rel="stylesheet" type="text/css" href="/css/main.css" th:href="@{/css/main.css}"/>
 </head>
 <body>
-<div><h1 th:text="#{application.title}"></h1></div>
-<div layout:fragment="content">
+<div class="main-header container"><h1><i class="fa fa-book"></i> <span th:text="#{application.title}"></span></h1></div>
+<div layout:fragment="content" class="container">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec molestie, tortor sit amet scelerisque auctor, urna
     dui lobortis ex, gravida blandit magna leo et ligula. Vivamus sit amet pretium nunc. Pellentesque tincidunt bibendum
     sagittis. Nam in magna ac nunc hendrerit cursus. Maecenas metus nunc, faucibus id faucibus et, fermentum ut tortor.
