@@ -12,7 +12,11 @@
     <link rel="stylesheet" type="text/css" href="/css/main.css" th:href="@{/css/main.css}"/>
 </head>
 <body>
-<div class="main-header container"><h1><i class="fa fa-book"></i> <span th:text="#{application.title}"></span></h1></div>
+<div class="main-header container">
+    <h1>
+        <a th:href="@{/}"><i class="fa fa-book"></i> <span th:text="#{application.title}"></span></a>
+    </h1>
+</div>
 <div layout:fragment="content" class="container">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec molestie, tortor sit amet scelerisque auctor, urna
     dui lobortis ex, gravida blandit magna leo et ligula. Vivamus sit amet pretium nunc. Pellentesque tincidunt bibendum

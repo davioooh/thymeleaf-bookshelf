@@ -33,7 +33,7 @@
                         <i class="fa fa-info"></i></a>
                     <a th:href="@{/books/{id}/edit(id=${book.id})}" th:title="#{book.list.options.edit}">
                         <i class="fa fa-pencil"></i></a>
-                    <a th:href="@{/books/delete(id=${book.id})}" th:title="#{book.list.options.delete}">
+                    <a th:href="@{/books/{id}/delete(id=${book.id})}" th:title="#{book.list.options.delete}">
                         <i class="fa fa-times"></i></a>
                 </td>
             </tr>

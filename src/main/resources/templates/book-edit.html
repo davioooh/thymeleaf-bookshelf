@@ -54,6 +54,7 @@
         </div>
         <div class="actions">
             <button type="submit" th:text="#{book.save}" class="btn btn-primary">Save</button>
+            <a th:href="@{/books/{id}/delete(id=${book.id})}" th:text="#{book.delete}" class="btn btn-danger">Delete</a>
         </div>
     </form>
 
