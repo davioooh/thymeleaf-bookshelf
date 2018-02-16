@@ -8,3 +8,11 @@
 .section-header .btn {
     margin-top: 12px;
 }
+
+.book-details > div {
+    padding: 6px 0;
+}
+
+.book-details-footer {
+    margin-top: 12px;
+}

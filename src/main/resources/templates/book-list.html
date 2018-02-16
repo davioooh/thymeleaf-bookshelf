@@ -9,7 +9,7 @@
 <div layout:fragment="content">
     <div class="section-header">
         <h2 th:text="#{book.list.title}">All books</h2>
-        <a th:text="#{book.list.new}" th:href="@{/books/new}" class="btn btn-success pull-right" ></a>
+        <a th:text="#{book.list.new}" th:href="@{/books/new}" class="btn btn-success pull-right" >New</a>
     </div>
     <div th:unless="${#lists.isEmpty(allBooks)}">
         <table class="table">
