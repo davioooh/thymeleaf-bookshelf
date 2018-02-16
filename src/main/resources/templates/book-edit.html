@@ -24,6 +24,17 @@
             <input type="text" th:field="*{author}" th:errorclass="fieldError"/>
         </div>
         <div>
+            <label for="type">
+                <strong th:text="#{book.type}">Author</strong>
+            </label>
+            <select th:field="*{type}" th:errorclass="fieldError">
+                <option value=""></option>
+                <option th:each="type : ${bookTypes}"
+                        th:value="${type}"
+                        th:text="#{|book.type.${type}|}">type</option>
+            </select>
+        </div>
+        <div>
             <label for="publicationYear">
                 <strong th:text="#{book.publicationYear}">Publication year</strong>
             </label>

@@ -23,10 +23,10 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="book : ${allBooks}">
+            <tr th:each="book, row : ${allBooks}" th:classAppend="${row.count % 2 == 0} ? 'even' : 'odd'">
                 <td th:text="${book.title}">title</td>
                 <td th:text="${book.author}">author</td>
-                <td th:text="${book.type}">type</td>
+                <td th:text="#{|book.type.${book.type}|}">type</td>
                 <td th:text="${book.publicationYear}">publication</td>
                 <td>
                     <a th:href="@{/books/{id}(id=${book.id})}" th:title="#{book.list.options.info}">

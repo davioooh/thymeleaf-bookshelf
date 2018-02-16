@@ -12,7 +12,7 @@
     <div>
         <div><strong th:text="#{book.title}">Title</strong>: <span th:text="${book.title}">title</span></div>
         <div><strong th:text="#{book.author}">Author</strong>: <span th:text="${book.author}">author</span></div>
-        <div><strong th:text="#{book.type}">Type</strong>: <span th:text="${book.type}">type</span></div>
+        <div><strong th:text="#{book.type}">Type</strong>: <span th:text="#{|book.type.${book.type}|}">type</span></div>
         <div><strong th:text="#{book.publicationYear}">Publication year</strong>: <span th:text="${book.publicationYear}">publication</span></div>
     </div>
 </div>

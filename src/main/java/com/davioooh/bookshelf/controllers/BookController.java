@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.util.Arrays;
+import java.util.List;
 
 @Controller
 @RequestMapping("/books")
@@ -66,4 +68,15 @@ public class BookController {
         bookService.delete(id);
         return "redirect:/books";
     }
+
+    //
+
+    @ModelAttribute("bookTypes")
+    public List<Book.Type> bookTypes() {
+        return Arrays.asList(
+                Book.Type.NOVEL,
+                Book.Type.ESSAY,
+                Book.Type.MANUAL);
+    }
+
 }
