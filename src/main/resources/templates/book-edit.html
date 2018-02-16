@@ -7,42 +7,53 @@
 </head>
 <body>
 <div layout:fragment="content">
-    <h2 th:text="${book.id > 0} ? ${book.title} : #{book.new.title}">Edit book</h2>
-
+    <div class="section-header">
+        <h2 th:text="${book.id > 0} ? ${book.title} : #{book.new.title}">Edit book</h2>
+        <a th:text="#{book.goToDetails}" th:href="@{/books/{id}(id=${book.id})}"
+           class="btn btn-success pull-right">Details</a>
+    </div>
     <form action="#" th:action="@{/books/save}" th:object="${book}" method="post">
         <input type="hidden" value="" th:field="*{id}"/>
-        <div>
-            <label for="title">
-                <strong th:text="#{book.title}">Title</strong>
-            </label>
-            <input type="text" th:field="*{title}" th:errorclass="fieldError"/>
+        <div class="row form-group">
+            <div class="col-sm-2">
+                <label for="title" class="form-label" th:text="#{book.title}">Title</label>
+            </div>
+            <div class="col-sm-3">
+                <input type="text" th:field="*{title}" class="form-control" th:errorclass="fieldError"/>
+            </div>
         </div>
-        <div>
-            <label for="author">
-                <strong th:text="#{book.author}">Author</strong>
-            </label>
-            <input type="text" th:field="*{author}" th:errorclass="fieldError"/>
+        <div class="row form-group">
+            <div class="col-sm-2">
+                <label for="author" th:text="#{book.author}">Author</label>
+            </div>
+            <div class="col-sm-3">
+                <input type="text" th:field="*{author}" class="form-control" th:errorclass="fieldError"/>
+            </div>
         </div>
-        <div>
-            <label for="type">
-                <strong th:text="#{book.type}">Author</strong>
-            </label>
-            <select th:field="*{type}" th:errorclass="fieldError">
-                <option value=""></option>
-                <option th:each="type : ${bookTypes}"
-                        th:value="${type}"
-                        th:text="#{|book.type.${type}|}">type
-                </option>
-            </select>
+        <div class="row form-group">
+            <div class="col-sm-2">
+                <label for="type" th:text="#{book.type}">Author</label>
+            </div>
+            <div class="col-sm-3">
+                <select th:field="*{type}" class="form-control" th:errorclass="fieldError">
+                    <option value=""></option>
+                    <option th:each="type : ${bookTypes}"
+                            th:value="${type}"
+                            th:text="#{|book.type.${type}|}">type
+                    </option>
+                </select>
+            </div>
         </div>
-        <div>
-            <label for="publicationYear">
-                <strong th:text="#{book.publicationYear}">Publication year</strong>
-            </label>
-            <input type="text" th:field="*{publicationYear}" th:errorclass="fieldError"/>
+        <div class="row form-group">
+            <div class="col-sm-2">
+                <label for="publicationYear" th:text="#{book.publicationYear}">Publication year</label>
+            </div>
+            <div class="col-sm-3">
+                <input type="text" th:field="*{publicationYear}" class="form-control" th:errorclass="fieldError"/>
+            </div>
         </div>
-        <div class="submit">
-            <button type="submit" th:text="#{book.save}">Save</button>
+        <div class="actions">
+            <button type="submit" th:text="#{book.save}" class="btn btn-primary">Save</button>
         </div>
     </form>
 
