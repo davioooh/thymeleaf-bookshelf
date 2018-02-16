@@ -15,6 +15,8 @@
         <div><strong th:text="#{book.type}">Type</strong>: <span th:text="#{|book.type.${book.type}|}">type</span></div>
         <div><strong th:text="#{book.publicationYear}">Publication year</strong>: <span th:text="${book.publicationYear}">publication</span></div>
     </div>
+
+    <div th:replace="fragments/book-details-footer :: footer"></div>
 </div>
 </body>
 </html>

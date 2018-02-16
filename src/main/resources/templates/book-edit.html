@@ -10,7 +10,7 @@
     <h2 th:text="${book.id > 0} ? ${book.title} : #{book.new.title}">Edit book</h2>
 
     <form action="#" th:action="@{/books/save}" th:object="${book}" method="post">
-        <input type="hidden" value="" th:field="*{id}" />
+        <input type="hidden" value="" th:field="*{id}"/>
         <div>
             <label for="title">
                 <strong th:text="#{book.title}">Title</strong>
@@ -31,7 +31,8 @@
                 <option value=""></option>
                 <option th:each="type : ${bookTypes}"
                         th:value="${type}"
-                        th:text="#{|book.type.${type}|}">type</option>
+                        th:text="#{|book.type.${type}|}">type
+                </option>
             </select>
         </div>
         <div>
@@ -41,9 +42,11 @@
             <input type="text" th:field="*{publicationYear}" th:errorclass="fieldError"/>
         </div>
         <div class="submit">
-            <button type="submit" th:text="#{book.save}" >Save</button>
+            <button type="submit" th:text="#{book.save}">Save</button>
         </div>
     </form>
+
+    <div th:replace="fragments/book-details-footer :: footer"></div>
 </div>
 </body>
 </html>
