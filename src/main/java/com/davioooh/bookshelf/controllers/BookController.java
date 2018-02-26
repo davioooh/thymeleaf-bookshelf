@@ -31,13 +31,13 @@ public class BookController {
     }
 
     @GetMapping("/{id}")
-    public String showBookDetails(@PathVariable("id") Integer id, Model model) {
+    public String showBookDetails(@PathVariable("id") Long id, Model model) {
         model.addAttribute("book", bookService.getById(id));
         return "book-details";
     }
 
     @GetMapping("/{id}/edit")
-    public String showBookEditForm(@PathVariable("id") Integer id, Model model) {
+    public String showBookEditForm(@PathVariable("id") Long id, Model model) {
         model.addAttribute("book", bookService.getById(id));
         return "book-edit";
     }
@@ -64,7 +64,7 @@ public class BookController {
     }
 
     @GetMapping("/{id}/delete")
-    public String deleteBook(@PathVariable("id") Integer id) {
+    public String deleteBook(@PathVariable("id") Long id) {
         bookService.delete(id);
         return "redirect:/books";
     }

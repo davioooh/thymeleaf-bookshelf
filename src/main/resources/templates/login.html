@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title layout:title-pattern="$CONTENT_TITLE - $DECORATOR_TITLE"
+           th:text="#{application.title}">Thymeleaf Bookshelf Example</title>
+    <link rel="stylesheet" type="text/css" media="all" href="/font-awesome-4.7.0/css/font-awesome.min.css"
+          th:href="@{/font-awesome-4.7.0/css/font-awesome.min.css}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+</head>
+<body>
+<div class="container">
+    <div class="page-header clearfix">
+        <h1>Thymeleaf Bookshelf Example</h1>
+    </div>
+
+    <h2 th:text="#{loginPage.login}">Login</h2>
+
+    <div th:if="${param.error}" class="alert alert-danger">
+        Nome utente o password errati!
+    </div>
+    <div th:if="${param.logout}" class="alert alert-success">
+        Hai effettuato il logout. A presto!
+    </div>
+    <form th:action="@{/login}" method="post">
+        <div class="form-group"><label> Username: <input type="text" name="username" class="form-control"/> </label>
+        </div>
+        <div class="form-group"><label> Password: <input type="password" name="password" class="form-control"/> </label>
+        </div>
+        <div>
+            <input type="submit" th:value="#{loginPage.signin}" value="Sign in" class="btn btn-primary"/>
+        </div>
+    </form>
+</div>
+</body>
+</html>

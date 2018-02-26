@@ -22,7 +22,7 @@ public class BookService {
         return ImmutableList.copyOf(bookRepository.findAll());
     }
 
-    public Book getById(Integer id) {
+    public Book getById(Long id) {
         return bookRepository.findOne(id);
     }
 
@@ -30,7 +30,7 @@ public class BookService {
         return bookRepository.save(book);
     }
 
-    public void delete(Integer id) {
+    public void delete(Long id) {
         bookRepository.delete(id);
     }
 
