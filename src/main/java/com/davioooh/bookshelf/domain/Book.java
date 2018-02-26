@@ -6,9 +6,11 @@ import org.hibernate.validator.constraints.NotBlank;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Data
 @Entity
+@Table(name = "books")
 public class Book {
     @Id
     @GeneratedValue
