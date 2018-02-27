@@ -1,0 +1,14 @@
+.login-header {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.login-container {
+    max-width: 330px;
+    margin: 0 auto;
+}
+
+.login-container input,
+.login-container label {
+    width: 100%;
+}
