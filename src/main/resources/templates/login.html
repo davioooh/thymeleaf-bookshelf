@@ -25,7 +25,7 @@
         <div th:if="${param.error}" th:text="#{loginPage.badCredentials}" class="alert alert-danger">
             Bad credentials!
         </div>
-        <div th:if="${param.logout}" th:text="#{loginPage.logut}" class="alert alert-success">
+        <div th:if="${param.logout}" th:text="#{loginPage.logout}" class="alert alert-success">
             Bye!
         </div>
         <form th:action="@{/login}" method="post">

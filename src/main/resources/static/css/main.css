@@ -1,3 +1,18 @@
+.main-header h1 {
+    float: left;
+    padding-bottom: 25px;
+}
+
+.session-form {
+    float: right;
+    margin-top: 20px;
+}
+
+.session-form > span {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
 .section-header {
 }
 
