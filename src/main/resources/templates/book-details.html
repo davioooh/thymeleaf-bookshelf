@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
       layout:decorator="main-template">
 <head>
     <title th:text="${book.title}">Book title</title>
@@ -9,7 +10,9 @@
 <div layout:fragment="content">
     <div class="section-header">
         <h2 th:text="${book.title + ' (' + book.author + ')'}">A book</h2>
-        <a th:text="#{book.edit}" th:href="@{/books/{id}/edit(id=${book.id})}" class="btn btn-success pull-right" >Edit</a>
+        <a sec:authorize="hasAuthority('ADMIN')"
+           th:text="#{book.edit}" th:href="@{/books/{id}/edit(id=${book.id})}"
+           class="btn btn-success pull-right">Edit</a>
     </div>
     <div class="book-details">
         <div class="row">

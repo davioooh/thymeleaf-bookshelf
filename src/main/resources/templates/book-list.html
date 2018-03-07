@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
       layout:decorator="main-template">
 <head>
     <title th:text="#{book.list.title}">All books</title>
@@ -9,7 +10,8 @@
 <div layout:fragment="content">
     <div class="section-header">
         <h2 th:text="#{book.list.title}">All books</h2>
-        <a th:text="#{book.list.new}" th:href="@{/books/new}" class="btn btn-success pull-right" >New</a>
+        <a sec:authorize="hasAuthority('ADMIN')"
+           th:text="#{book.list.new}" th:href="@{/books/new}" class="btn btn-success pull-right">New</a>
     </div>
     <div th:unless="${#lists.isEmpty(allBooks)}">
         <table class="table">
@@ -23,17 +25,19 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="book, row : ${allBooks}" th:classAppend="${row.count % 2 == 0} ? 'even' : 'odd'">
+            <tr th:each="book, row : ${allBooks}" th:classappend="${row.count % 2 == 0} ? 'even' : 'odd'">
                 <td th:text="${book.title}">title</td>
                 <td th:text="${book.author}">author</td>
                 <td th:text="#{|book.type.${book.type}|}">type</td>
                 <td th:text="${book.publicationYear}">publication</td>
                 <td>
-                    <a th:href="@{/books/{id}(id=${book.id})}" th:title="#{book.list.options.info}" class="btn">
-                        <i class="fa fa-info"></i></a>
-                    <a th:href="@{/books/{id}/edit(id=${book.id})}" th:title="#{book.list.options.edit}" class="btn">
+                    <a th:href="@{/books/{id}(id=${book.id})}" th:title="#{book.list.options.info}" class="btn btn-xs btn-default">
+                        <i class="fa fa-info-circle"></i></a>
+                    <a th:href="@{/books/{id}/edit(id=${book.id})}" th:title="#{book.list.options.edit}" class="btn btn-xs btn-primary"
+                       th:classappend="${#authorization.expression('hasAuthority(''ADMIN'')')} ? '' : disabled">
                         <i class="fa fa-pencil"></i></a>
-                    <a th:href="@{/books/{id}/delete(id=${book.id})}" th:title="#{book.list.options.delete}" class="btn">
+                    <a th:href="@{/books/{id}/delete(id=${book.id})}" th:title="#{book.list.options.delete}" class="btn btn-xs btn-danger"
+                       th:classappend="${#authorization.expression('hasAuthority(''ADMIN'')')} ? '' : disabled">
                         <i class="fa fa-times"></i></a>
                 </td>
             </tr>
