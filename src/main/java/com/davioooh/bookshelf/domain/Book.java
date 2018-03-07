@@ -14,7 +14,7 @@ import javax.persistence.Table;
 public class Book {
     @Id
     @GeneratedValue
-    private Integer id;
+    private Long id;
     @NotBlank
     private String title;
     @NotBlank
