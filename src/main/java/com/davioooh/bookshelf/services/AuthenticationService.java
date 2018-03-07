@@ -31,14 +31,14 @@ public class AuthenticationService implements UserDetailsService {
                 user.getId()
                 , user.getUsername()
                 , user.getPassword()
-                , Collections.singleton(new SimpleGrantedAuthority("user")));
+                , Collections.singleton(new SimpleGrantedAuthority(user.getRole().name())));
     }
 
     static class BookshelfUser extends org.springframework.security.core.userdetails.User {
 
         private long id;
 
-        public BookshelfUser(long userId, String username, String password, Collection<? extends GrantedAuthority> authorities) {
+        BookshelfUser(long userId, String username, String password, Collection<? extends GrantedAuthority> authorities) {
             super(username, password, authorities);
             this.id = userId;
         }

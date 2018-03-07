@@ -19,6 +19,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/css/**", "/font-awesome-*/**").permitAll()
                 .antMatchers("/h2-console/**").permitAll()
+                .antMatchers(
+                        "/books/new",
+                        "/books/**/edit",
+                        "/books/save",
+                        "/books/**/delete").hasAuthority("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
