@@ -14,7 +14,13 @@ public class User {
     @Id
     @GeneratedValue
     private Long id;
-    String username;
-    String password;
-    String email;
+    private String username;
+    private String password;
+    private String email;
+    private Role role;
+
+    public enum Role {
+        ADMIN,
+        READER
+    }
 }

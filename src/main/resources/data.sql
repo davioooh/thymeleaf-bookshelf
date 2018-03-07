@@ -1,5 +1,6 @@
 --users
-insert into users (username, password) values ('davioooh', 'pwd1234');
+insert into users (username, password, role) values ('davioooh', 'pwd1234', 0);
+insert into users (username, password, role) values ('mario', 'pwd1234', 1);
 
 --books
 insert into books (title, author, publication_year, type) values
