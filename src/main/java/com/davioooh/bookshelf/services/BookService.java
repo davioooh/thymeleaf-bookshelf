@@ -23,7 +23,8 @@ public class BookService {
     }
 
     public Book getById(Long id) {
-        return bookRepository.findOne(id);
+        return bookRepository.findById(id)
+                .orElse(null);
     }
 
     public Book save(Book book) {
@@ -31,7 +32,7 @@ public class BookService {
     }
 
     public void delete(Long id) {
-        bookRepository.delete(id);
+        bookRepository.deleteById(id);
     }
 
 }
