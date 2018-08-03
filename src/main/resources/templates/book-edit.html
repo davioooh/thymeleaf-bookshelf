@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorator="main-template">
+      layout:decorate="main-template">
 <head>
     <title th:text="${book.title}">Edit book</title>
 </head>
@@ -59,7 +59,7 @@
         </div>
     </form>
 
-    <div th:replace="fragments/book-details-footer :: footer"></div>
+    <div th:replace="~{fragments/book-details-footer :: footer}"></div>
 </div>
 </body>
 </html>

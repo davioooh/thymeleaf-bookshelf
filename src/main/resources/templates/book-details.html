@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
-      layout:decorator="main-template">
+      layout:decorate="main-template">
 <head>
     <title th:text="${book.title}">Book title</title>
 </head>
@@ -32,7 +32,7 @@
             <div class="col-md-2"><span th:text="${book.publicationYear}">publication</span></div>
         </div>
     </div>
-    <div th:replace="fragments/book-details-footer :: footer"></div>
+    <div th:replace="~{fragments/book-details-footer :: footer}"></div>
 </div>
 </body>
 </html>
